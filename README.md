@@ -159,7 +159,7 @@ Note: Do not close the Node.js command prompt running http://localhost:5000 unti
 curl -X POST http://localhost:5000/register -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
 
 # Login
-curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
+curl -c cookies.txt -X POST http://localhost:5000/login -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"123\"}"
 
 # Logout
 curl -b cookies.txt -X POST http://localhost:5000/logout
