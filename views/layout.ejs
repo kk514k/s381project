@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern blogging platform">
+    <title><% if(typeof title !== 'undefined') { %><%= title %> - <% } %>Blog App</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col min-h-screen">
+<!-- Skip to main content for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white p-2 z-50">
+    Skip to main content
+</a>
+
+<!-- Header -->
+<%- include('partials/header') %>
+
+<!-- Main Content -->
+<main id="main-content" class="flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <%- include('partials/messages') %>
+        <%- body %>
+    </div>
+</main>
+
+<!-- Footer -->
+<%- include('partials/footer') %>
+
+<!-- Scripts -->
+<script>
+    // Handle mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.querySelector('[data-mobile-menu-button]');
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Auto-hide flash messages
+        const flashMessages = document.querySelectorAll('[data-flash-message]');
+        flashMessages.forEach(message => {
+            setTimeout(() => {
+                message.style.opacity = '0';
+                // Remove the element after the fade animation completes
+                setTimeout(() => {
+                    message.remove();
+                }, 300); // Match this with the duration-300 class
+            }, 3000);
+        });
+    });
+</script>
+</body>
+</html>
