@@ -168,7 +168,7 @@ curl -b cookies.txt -X POST http://localhost:5000/logout
 #### Posts
 ```bash
 # Create post
-curl -b cookies.txt -X POST http://localhost:5000/posts -H "Content-Type: application/json" -d "{\"title\":\"Test Post\",\"content\":\"This is a test post\"}"
+curl -b cookies.txt -X POST http://localhost:5000/posts -H "Content-Type: application/json" -d "{\"title\":\"Test Post💖\",\"content\":\"This is a test post\"}"
 
 # Get all posts
 curl -b cookies.txt -X GET http://localhost:5000/posts
@@ -177,7 +177,7 @@ curl -b cookies.txt -X GET http://localhost:5000/posts
 curl -b cookies.txt -X GET http://localhost:5000/posts/[post-id]
 
 # Update post
-curl -b cookies.txt -X PUT http://localhost:5000/posts/[post-id] -H "Content-Type: application/json" -d "{\"title\":\"Updated Post\",\"content\":\"This is a test updated post\"}"
+curl -b cookies.txt -X PUT http://localhost:5000/posts/[post-id] -H "Content-Type: application/json" -d "{\"title\":\"Updated Post💖\",\"content\":\"This is a test updated post\"}"
 
 
 # Delete post
