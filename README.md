@@ -3,6 +3,13 @@
 ## 1. Project Information
 - **Project Name**: Express MongoDB Blog
 - **Group Info**: 
+    - Group2
+    - Chui Tsz Nok (s13428724)
+	- Yip Tik Yung (s13462601) 
+    - Ho Man Ho (s13354233)
+    - Lee Kei Fung (s13324591)
+	- Wong Jun Yi Joshua (s13341016)
+
 
 ## 2. Project Structure
 
@@ -52,9 +59,25 @@
     - Authorization checks
 
 ## 3. Cloud Server URL
-https://your-blog-app.render.com
+https://s381-group2.onrender.com
 
 ## 4. Operation Guide
+
+This project operates on Windows.
+
+### Environment for running the code
+
+#### 1. Install Node.js
+If you are running the code but not the URL, please first ensure that you have downloaded Node.js (LTS) for Windows from https://nodejs.org/en.
+
+#### 2. Download and navigate to the Project Folder
+Make sure you are in the project folder where your code is located.
+
+#### 3. Run the following two commands on Node.js command prompt
+ ```
+npm i nodemon
+npm run dev
+ ```
 
 ### Authentication
 
@@ -119,37 +142,45 @@ DELETE /posts/:id      - Delete post
 
 ### CURL Testing Commands
 
+Since this project operates on Windows, the following curl commands are intended for Windows.
+
+1. Ensure Environment Setup: Make sure you are in the correct environment mentioned, and you have already run npm run dev to start the server at http://localhost:5000.
+
+2. Open a New Command Prompt: Open a new Node.js command prompt while keeping the existing one running for http://localhost:5000.
+
+3. Test the Curl Commands: You can now test the following curl commands in the new command prompt.
+
+Note: Do not close the Node.js command prompt running http://localhost:5000 until you finish testing.
+
 #### Authentication
+
 ```bash
 # Register new user
-curl -X POST http://localhost:5000/register \
-  -H "Content-Type: application/json" \
-  -d '{"username":"testuser","password":"testpass"}'
+curl -X POST http://localhost:5000/register -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
 
 # Login
-curl -X POST http://localhost:5000/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"testuser","password":"testpass"}'
+curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
+
+# Logout
+curl -b cookies.txt -X POST http://localhost:5000/logout
 ```
 
 #### Posts
 ```bash
 # Create post
-curl -X POST http://localhost:5000/posts \
-  -H "Content-Type: application/json" \
-  -d '{"title":"Test Post","content":"This is a test post"}'
+curl -b cookies.txt -X POST http://localhost:5000/posts -H "Content-Type: application/json" -d "{\"title\":\"Test Post\",\"content\":\"This is a test post\"}"
 
 # Get all posts
-curl http://localhost:5000/posts
+curl -b cookies.txt -X GET http://localhost:5000/posts
 
 # Get single post
-curl http://localhost:5000/posts/[post-id]
+curl -b cookies.txt -X GET http://localhost:5000/posts/[post-id]
 
 # Update post
-curl -X PUT http://localhost:5000/posts/[post-id] \
-  -H "Content-Type: application/json" \
-  -d '{"title":"Updated Title","content":"Updated content"}'
+curl -b cookies.txt -X PUT http://localhost:5000/posts/[post-id] -H "Content-Type: application/json" -d "{\"title\":
+\"Updated Post\",\"content\":\"This is a test updated post\"}"
+
 
 # Delete post
-curl -X DELETE http://localhost:5000/posts/[post-id]
+curl -b cookies.txt -X DELETE http://localhost:5000/posts/[post-id]
 ```
