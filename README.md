@@ -177,8 +177,7 @@ curl -b cookies.txt -X GET http://localhost:5000/posts
 curl -b cookies.txt -X GET http://localhost:5000/posts/[post-id]
 
 # Update post
-curl -b cookies.txt -X PUT http://localhost:5000/posts/[post-id] -H "Content-Type: application/json" -d "{\"title\":
-\"Updated Post\",\"content\":\"This is a test updated post\"}"
+curl -b cookies.txt -X PUT http://localhost:5000/posts/[post-id] -H "Content-Type: application/json" -d "{\"title\":\"Updated Post\",\"content\":\"This is a test updated post\"}"
 
 
 # Delete post
