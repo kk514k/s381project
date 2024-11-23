@@ -162,7 +162,7 @@ curl -X POST http://localhost:5000/register -H "Content-Type: application/json" 
 curl -c cookies.txt -X POST http://localhost:5000/login -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"123\"}"
 
 # Logout
-curl -b cookies.txt -X POST http://localhost:5000/logout
+curl -b cookies.txt -X GET http://localhost:5000/logout
 ```
 
 #### Posts
