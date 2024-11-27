@@ -182,3 +182,35 @@ curl -b cookies.txt -X PUT http://localhost:5000/posts/[post-id] -H "Content-Typ
 # Delete post
 curl -b cookies.txt -X DELETE http://localhost:5000/posts/[post-id]
 ```
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#### Authentication
+
+```bash
+# Register new user
+curl -X POST https://s381-group2.onrender.com/register -H "Content-Type: application/json" -d "{\"username\":\"123\",\"password\":\"123\"}"
+
+# Login
+curl -c cookies.txt -X POST https://s381-group2.onrender.com/login -H "Content-Type: application/json" -d "{\"username\":\"123\",\"password\":\"123\"}"
+
+# Logout
+curl -b cookies.txt -X GET http://s381-group2.onrender.com/logout
+```
+
+#### Posts
+```bash
+# Create post
+curl -b cookies.txt -X POST http://s381-group2.onrender.com/posts -H "Content-Type: application/json" -d "{\"title\":\"Test Post💖\",\"content\":\"This is a test post\"}"
+
+# Get all posts
+curl -b cookies.txt -X GET http://s381-group2.onrender.com/posts
+
+# Get single post
+curl -b cookies.txt -X GET http://s381-group2.onrender.com/posts/[post-id]
+
+# Update post
+curl -b cookies.txt -X PUT http://s381-group2.onrender.com/posts/[post-id] -H "Content-Type: application/json" -d "{\"title\":\"Updated Post💖\",\"content\":\"This is a test updated post\"}"
+
+# Delete post
+curl -b cookies.txt -X DELETE http://s381-group2.onrender.com/posts/[post-id]
+```
+
