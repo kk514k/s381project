@@ -152,6 +152,7 @@ Since this project operates on Windows, the following curl commands are intended
 
 Note: Do not close the Node.js command prompt running http://localhost:5000 until you finish testing.
 
+### localhost
 #### Authentication
 
 ```bash
@@ -159,7 +160,7 @@ Note: Do not close the Node.js command prompt running http://localhost:5000 unti
 curl -X POST http://localhost:5000/register -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
 
 # Login
-curl -c cookies.txt -X POST http://localhost:5000/login -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"123\"}"
+curl -c cookies.txt -X POST http://localhost:5000/login -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
 
 # Logout
 curl -b cookies.txt -X GET http://localhost:5000/logout
@@ -183,15 +184,16 @@ curl -b cookies.txt -X PUT http://localhost:5000/posts/[post-id] -H "Content-Typ
 curl -b cookies.txt -X DELETE http://localhost:5000/posts/[post-id]
 ```
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### Cloud URL
 #### Authentication
 curl -X POST https://s381-group2.onrender.com
 
 ```bash
 # Register new user
-curl -X POST https://s381-group2.onrender.com/register -H "Content-Type: application/json" -d "{\"username\":\"123123\",\"password\":\"123\"}"
+curl -X POST https://s381-group2.onrender.com/register -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
 
 # Login
-curl -c cookies.txt -X POST https://s381-group2.onrender.com/login -H "Content-Type: application/json" -d "{\"username\":\"hihi\",\"password\":\"123\"}"
+curl -c cookies.txt -X POST https://s381-group2.onrender.com/login -H "Content-Type: application/json" -d "{\"username\":\"[username]\",\"password\":\"[password]\"}"
 
 # Logout
 curl -b cookies.txt -X GET https://s381-group2.onrender.com/logout
