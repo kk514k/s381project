@@ -191,7 +191,7 @@ curl -X POST https://s381-group2.onrender.com
 curl -X POST https://s381-group2.onrender.com/register -H "Content-Type: application/json" -d "{\"username\":\"123123\",\"password\":\"123\"}"
 
 # Login
-curl -c cookies.txt -X POST https://s381-group2.onrender.com/login -H "Content-Type: application/json" -d "{\"username\":\"123123\",\"password\":\"123\"}"
+curl -c cookies.txt -X POST https://s381-group2.onrender.com/login -H "Content-Type: application/json" -d "{\"username\":\"hihi\",\"password\":\"123\"}"
 
 # Logout
 curl -b cookies.txt -X GET https://s381-group2.onrender.com/logout
